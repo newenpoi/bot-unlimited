@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const reader = require('../util/reader.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -13,8 +14,11 @@ module.exports = {
 				.setRequired(true)
 		),
 	async execute(interaction) {
-		await interaction.reply(
-			`Le corps de l'interaction est vide.\nAdministrateur, auriez-vous oublié de définir le contenu à renvoyer ?`
-		);
+		let arg = interaction.options.getString('commande');
+
+		// Gets the response required for this interaction.
+		let line = await reader.read(interaction.commandName, arg);
+
+		await interaction.reply(line);
 	},
 };
