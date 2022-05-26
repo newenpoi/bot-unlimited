@@ -1,7 +1,7 @@
 /*
-	Les interactions peuvent gérer :
+	Interactions can handle :
 	- Slash Commands,
-	- Boutons,
+	- Buttons,
 	- ContextMenu
 */
 
@@ -10,6 +10,7 @@ module.exports = {
 	execute(interaction) {
 		if (!interaction.isCommand()) return;
 
+		// Calls the command.
 		const command = interaction.client.commands.get(interaction.commandName);
 
 		try {
@@ -18,6 +19,6 @@ module.exports = {
 			console.log(error);
 		}
 
-		console.log(`${interaction.user.tag} in #${interaction.channel.name} a exécuté une interaction.`);
+		console.log(`${interaction.user.tag} in #${interaction.channel.name} executed an interaction.`);
 	},
 };
