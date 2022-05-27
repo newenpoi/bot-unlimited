@@ -1,13 +1,13 @@
 /*
-    Table [User]
-	Idea : Make a static function in CustomSeq to avoid line 8 ?
+	Author : Newen
+
+    @Table [User]
 */
 
 const { Sequelize } = require('sequelize');
 const CustomSeq = require('../config/CustomSeq.js');
-var customSeq = new CustomSeq();
 
-const user = customSeq.getSequelize().define('user', {
+const user = CustomSeq.getSequelize().define('user', {
 	ID: {
 		type: Sequelize.BIGINT.UNSIGNED,
 		primaryKey: true,
