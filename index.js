@@ -29,12 +29,12 @@ function loadEvents() {
         
         // Calls the execute function depending on the event.
         if (event.once) client.once(event.name, (...args) => event.execute(...args));
-        else client.on(event.name, (...args) => event.execute(...args));
+        else client.on(event.name, (...args) => event.execute(client, ...args));
     }
 }
 
 // A new client instance...
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS] });
 
 loadCommands();
 loadEvents();

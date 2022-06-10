@@ -32,9 +32,9 @@ module.exports = {
 	async read(file, identifier, ...args) {
         // Parses the file (dom) in order to access custom data through an id.
 		const dom = await JSDOM.fromFile(`strings/${file}.html`);
-		const content = dom.window.document.querySelector(`#${identifier}`).innerHTML;
+		const content = dom.window.document.querySelector(`#${identifier}`).textContent;
 
 		// Sends back the formatted string with the rest.
-		return utf8.decode(content.format(args));
+		return content.format(...args);
 	},
 };
