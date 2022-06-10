@@ -7,7 +7,7 @@
 
 module.exports = {
 	name: 'interactionCreate',
-	execute(interaction) {
+	execute(client, interaction) {
 		if (!interaction.isCommand()) return;
 
 		// Calls the command.

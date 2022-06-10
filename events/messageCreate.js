@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'messageCreate',
-	execute(message) {
+	execute(client, message) {
         if (message.content.includes('Pog!')) {
             message.reply('Pogger!').then(() => console.log(`Pogger!`)).catch(console.error);
         }
