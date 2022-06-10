@@ -12,6 +12,10 @@ const user = CustomSeq.getSequelize().define('user', {
 		type: Sequelize.BIGINT.UNSIGNED,
 		primaryKey: true,
 	},
+	ID_Server: {
+		type: Sequelize.BIGINT.UNSIGNED,
+		allowNull: false,
+	},
 	Name: {
 		type: Sequelize.STRING(32),
 		unique: true,
